@@ -11,3 +11,12 @@ This repository uses a single-context domain documentation layout. See `docs/age
 ### Triage labels
 
 The repository uses the default canonical triage labels. See `docs/agents/triage-labels.md`.
+
+## Git workflow
+
+- `main` is the protected integration branch. Do not commit directly to it after repository bootstrap.
+- Start each scoped change from an up-to-date `main` branch using a descriptive branch name such as `feat/catalog-search`, `fix/player-progress`, or `chore/tooling`.
+- Keep commits small and focused. Run the relevant formatter, type checks, lint checks, and tests before committing.
+- Before integration, rebase the branch onto the latest `origin/main`. If the branch was already pushed, update it with `git push --force-with-lease`, never `--force`.
+- Push the branch, open a pull request, require passing checks and review, then squash-merge it into `main` unless a multi-commit history is meaningful.
+- Fetch `origin/main` after a pull request merges and delete the merged local branch.
